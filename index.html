@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Personal Site</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Import modern, bold Google Fonts for headers and body -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap');
+  </style>
+</head>
+<body>
+  <!-- Navigation bar: Simple F1-style navigation -->
+  <nav class="navbar">
+    <!-- Logo or site name -->
+    <div class="navbar-logo">
+      <!-- You can use an image or just text for your logo -->
+      <span class="site-title">My Personal Portfolio</span>
+    </div>
+    <!-- Navigation links -->
+    <ul class="navbar-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#bio">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero section: This is the top part of your website -->
+  <section class="hero" id="hero">
+    <!-- Main header with racing font -->
+    <h1 class="paddock-header">Welcome To my Paddock</h1>
+    <!-- Strong subheader below the main header -->
+    <h2 class="paddock-subheader">Driven by Code. Inspired by Speed.</h2>
+    
+  </section>
+
+  <!-- Main content: Bio and Skills side by side on large screens -->
+  <div class="main-content">
+    <!-- Bio section: A short introduction about yourself -->
+    <section class="bio" id="bio">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm a passionate web development student with a love for technology, racing, and creativity. My journey began with curiosity about how websites work, and now I'm driven to build fast, modern, and beautiful web experiences. I enjoy learning new coding skills, solving problems, and bringing ideas to life. When I'm not coding, you can find me watching Formula 1, with my two Cardigan Welsh Corgis, or capturing moments with my camera.
+      </p>
+    </section>
+
+    <!-- Photo Gallery section: Now in its own space -->
+    <section class="photo-gallery-section" id="gallery">
+      <h2>Photo Showcase</h2>
+      <div class="photo-gallery-slider">
+        <button class="gallery-arrow left-arrow" onclick="moveSlide(-1)">&#8592;</button>
+        <img id="gallery-img" src="img/me.png" alt="Photo showcase" class="gallery-img">
+        <button class="gallery-arrow right-arrow" onclick="moveSlide(1)">&#8594;</button>
+      </div>
+    </section>
+    <script>
+      // Updated sliding gallery for beginners
+      const galleryImages = [
+        'img/GettyImages-2187033387-1140x760.jpg',
+        'img/IMG_1908.JPEG',
+        'img/IMG_1913.JPG',
+        'img/IMG_1918.JPEG',
+        'img/IMG_2015.JPG',
+        'img/IMG_6479.JPG'
+      ];
+      let currentImg = 0;
+      function moveSlide(direction) {
+        currentImg += direction;
+        if (currentImg < 0) currentImg = galleryImages.length - 1;
+        if (currentImg >= galleryImages.length) currentImg = 0;
+        document.getElementById('gallery-img').src = galleryImages[currentImg];
+      }
+    </script>
+
+    <!-- Skills section: List your web development skills -->
+    <section class="skills" id="skills">
+      <h2>My Skills</h2>
+      <ul>
+        <li><span class="skill-icon">💻</span>HTML</li>
+        <li><span class="skill-icon">🎨</span>CSS</li>
+        <li><span class="skill-icon">✨</span>JavaScript (beginner)</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- Portfolio section: Placeholder for your future projects -->
+  <section class="portfolio" id="portfolio">
+    <h2>My Projects</h2>
+    <p>Check back soon to see the projects I create during my course!</p>
+  </section>
+
+  <!-- Banner with interactive Formula 1 calendar -->
+  <section class="f1-calendar-banner">
+    <div class="calendar-flex">
+      <div class="calendar-list">
+        <h2>2025 Formula 1 Calendar: Next 4 Weeks</h2>
+        <!-- Interactive calendar: click a race to highlight it -->
+        <ul class="f1-calendar">
+          <li onclick="highlightRace(this)">Monaco GP - May 25</li>
+          <li onclick="highlightRace(this)">British GP - Jul 6</li>
+        </ul>
+      </div>
+      <div class="race-weekend">
+        <h3>This Weekend: Monaco GP</h3>
+        <ul class="race-times">
+          <li><strong>Free Practice:</strong> Fri, May 23, 7:30 AM EST</li>
+          <li><strong>Qualifying:</strong> Sat, May 24, 10:00 AM EST</li>
+          <li><strong>Race:</strong> Sun, May 25, 9:00 AM EST</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Simple script for interactivity -->
+    <script>
+      function highlightRace(element) {
+        var races = document.querySelectorAll('.f1-calendar li');
+        races.forEach(function(race) {
+          race.classList.remove('highlighted-race');
+        });
+        element.classList.add('highlighted-race');
+      }
+    </script>
+  </section>
+</body>
+</html>
