@@ -214,6 +214,62 @@
     </script>
   </section>
 
+  <!-- Full 2025 Formula 1 Season Calendar Section -->
+  <section class="f1-full-calendar-section" style="max-width: 800px; margin: 32px auto 24px auto; border: 2px solid #111; box-shadow: 0 6px 24px rgba(0,0,0,0.18); border-radius: 10px; background: #fff;">
+    <div class="container py-4">
+      <h2 class="mb-3" style="font-family: 'Bebas Neue', Arial, sans-serif; color: #ff69b4;">2025 Formula 1 Full Season Calendar</h2>
+      <!-- Scrollable race list -->
+      <div style="max-height: 300px; overflow-y: auto; border: 1.5px solid #ff69b4; border-radius: 8px; background: #fff;">
+        <ul class="list-group list-group-flush" id="f1-full-calendar-list">
+          <!-- Full season races will be inserted here by JavaScript -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      // Full 2025 F1 season races (add or edit as needed)
+      const f1FullSeason = [
+        { name: "Australian GP", date: "2025-03-16" },
+        { name: "Saudi Arabian GP", date: "2025-03-23" },
+        { name: "Bahrain GP", date: "2025-04-06" },
+        { name: "Chinese GP", date: "2025-04-20" },
+        { name: "Miami GP", date: "2025-05-04" },
+        { name: "Emilia Romagna GP", date: "2025-05-18" },
+        { name: "Monaco GP", date: "2025-05-25" },
+        { name: "Canadian GP", date: "2025-06-08" },
+        { name: "Austrian GP", date: "2025-06-22" },
+        { name: "British GP", date: "2025-07-06" },
+        { name: "Hungarian GP", date: "2025-07-20" },
+        { name: "Belgian GP", date: "2025-08-03" },
+        { name: "Dutch GP", date: "2025-08-24" },
+        { name: "Italian GP", date: "2025-09-07" },
+        { name: "Singapore GP", date: "2025-09-21" },
+        { name: "Japanese GP", date: "2025-10-05" },
+        { name: "United States GP", date: "2025-10-19" },
+        { name: "Mexico City GP", date: "2025-10-26" },
+        { name: "Brazilian GP", date: "2025-11-09" },
+        { name: "Las Vegas GP", date: "2025-11-22" },
+        { name: "Qatar GP", date: "2025-11-30" },
+        { name: "Abu Dhabi GP", date: "2025-12-07" }
+      ];
+      // Insert all races into the scrollable list
+      const fullCalendarList = document.getElementById('f1-full-calendar-list');
+      f1FullSeason.forEach(race => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+        // Highlight the next race
+        const today = new Date();
+        const raceDate = new Date(race.date);
+        if (!fullCalendarList.nextRaceFound && raceDate >= today) {
+          li.style.background = '#ffe066'; // light yellow highlight
+          li.style.fontWeight = 'bold';
+          fullCalendarList.nextRaceFound = true;
+        }
+        fullCalendarList.appendChild(li);
+      });
+    </script>
+  </section>
+
   <!-- Add Bootstrap JS for interactive components (like modals, dropdowns, etc.) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
