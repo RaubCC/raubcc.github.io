@@ -8,6 +8,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap');
   </style>
+  <!-- Add Bootstrap CSS for easy styling and interactivity -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
   <!-- Navigation bar: Simple F1-style navigation -->
@@ -104,7 +106,7 @@
     </style>
     <div class="discord-widget">
       <iframe
-        src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
+        src="https://discord.com/widget?id=1334905959612547155&theme=dark"
         width="350"
         height="500"
         allowtransparency="true"
@@ -123,31 +125,96 @@
     <div class="calendar-flex">
       <div class="calendar-list">
         <h2>2025 Formula 1 Calendar: Next 4 Weeks</h2>
-        <!-- Interactive calendar: click a race to highlight it -->
-        <ul class="f1-calendar">
-          <li onclick="highlightRace(this)">Monaco GP - May 25</li>
-          <li onclick="highlightRace(this)">British GP - Jul 6</li>
+        <!-- Interactive calendar: will update automatically to show next 4 races -->
+        <ul class="f1-calendar" id="f1-calendar-list">
+          <!-- Races will be inserted here by JavaScript -->
         </ul>
       </div>
-      <div class="race-weekend">
-        <h3>This Weekend: Monaco GP</h3>
-        <ul class="race-times">
-          <li><strong>Free Practice:</strong> Fri, May 23, 7:30 AM EST</li>
-          <li><strong>Qualifying:</strong> Sat, May 24, 10:00 AM EST</li>
-          <li><strong>Race:</strong> Sun, May 25, 9:00 AM EST</li>
-        </ul>
+      <div class="race-weekend" id="race-weekend">
+        <!-- This Weekend info will be inserted by JavaScript -->
       </div>
     </div>
-    <!-- Simple script for interactivity -->
+    <!-- Script to update the calendar automatically -->
     <script>
-      function highlightRace(element) {
-        var races = document.querySelectorAll('.f1-calendar li');
-        races.forEach(function(race) {
-          race.classList.remove('highlighted-race');
+      // List of 2025 Formula 1 races (add more as needed)
+      const f1Races = [
+        { name: "Monaco GP", date: "2025-05-25", weekend: [
+          { session: "Free Practice", time: "Fri, May 23, 7:30 AM EST" },
+          { session: "Qualifying", time: "Sat, May 24, 10:00 AM EST" },
+          { session: "Race", time: "Sun, May 25, 9:00 AM EST" }
+        ] },
+        { name: "Canadian GP", date: "2025-06-08", weekend: [
+          { session: "Free Practice", time: "Fri, Jun 6, 7:30 AM EST" },
+          { session: "Qualifying", time: "Sat, Jun 7, 10:00 AM EST" },
+          { session: "Race", time: "Sun, Jun 8, 9:00 AM EST" }
+        ] },
+        { name: "Austrian GP", date: "2025-06-22", weekend: [
+          { session: "Free Practice", time: "Fri, Jun 20, 7:30 AM EST" },
+          { session: "Qualifying", time: "Sat, Jun 21, 10:00 AM EST" },
+          { session: "Race", time: "Sun, Jun 22, 9:00 AM EST" }
+        ] },
+        { name: "British GP", date: "2025-07-06", weekend: [
+          { session: "Free Practice", time: "Fri, Jul 4, 7:30 AM EST" },
+          { session: "Qualifying", time: "Sat, Jul 5, 10:00 AM EST" },
+          { session: "Race", time: "Sun, Jul 6, 9:00 AM EST" }
+        ] },
+        { name: "Hungarian GP", date: "2025-07-20", weekend: [
+          { session: "Free Practice", time: "Fri, Jul 18, 7:30 AM EST" },
+          { session: "Qualifying", time: "Sat, Jul 19, 10:00 AM EST" },
+          { session: "Race", time: "Sun, Jul 20, 9:00 AM EST" }
+        ] },
+        // ...add more races for the season...
+      ];
+
+      // Get today's date
+      const today = new Date();
+      // Find the next 4 races
+      const upcomingRaces = f1Races.filter(race => new Date(race.date) >= today).slice(0, 4);
+
+      // Display the next 4 races in the calendar
+      const calendarList = document.getElementById('f1-calendar-list');
+      upcomingRaces.forEach((race, idx) => {
+        const li = document.createElement('li');
+        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+        li.onclick = function() { highlightRace(this, idx); };
+        calendarList.appendChild(li);
+      });
+
+      // Show the next race as "This Weekend"
+      function showRaceWeekend(race) {
+        const raceWeekendDiv = document.getElementById('race-weekend');
+        if (!race) {
+          raceWeekendDiv.innerHTML = '<h3>No more races this season!</h3>';
+          return;
+        }
+        let html = `<h3>This Weekend: ${race.name}</h3><ul class='race-times'>`;
+        race.weekend.forEach(session => {
+          html += `<li><strong>${session.session}:</strong> ${session.time}</li>`;
         });
+        html += '</ul>';
+        raceWeekendDiv.innerHTML = html;
+      }
+      // Highlight a race when clicked and update the weekend info
+      function highlightRace(element, idx) {
+        const races = document.querySelectorAll('.f1-calendar li');
+        races.forEach(race => race.classList.remove('highlighted-race'));
         element.classList.add('highlighted-race');
+        showRaceWeekend(upcomingRaces[idx]);
+      }
+      // By default, highlight the first race and show its weekend info
+      if (upcomingRaces.length > 0) {
+        const firstLi = document.querySelector('.f1-calendar li');
+        if (firstLi) {
+          firstLi.classList.add('highlighted-race');
+          showRaceWeekend(upcomingRaces[0]);
+        }
+      } else {
+        showRaceWeekend(null);
       }
     </script>
   </section>
+
+  <!-- Add Bootstrap JS for interactive components (like modals, dropdowns, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
