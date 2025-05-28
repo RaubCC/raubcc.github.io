@@ -91,9 +91,16 @@
     <p>Check back soon to see the projects I create during my course!</p>
   </section>
 
-  <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) -->
+  <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
   <section class="f1-calendar-banner" style="margin-bottom: 32px;">
     <div class="calendar-flex">
+      <!-- World Drivers Championship Standings -->
+      <div class="standings-list" style="flex: 1 1 220px; min-width: 200px; max-width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); border: 2px solid #111; margin-right: 18px; padding: 18px 10px 18px 10px;">
+        <h2 style="font-family: 'Bebas Neue', Arial, sans-serif; color: #ff69b4; font-size: 1.3em; margin-bottom: 12px;">2025 World Drivers Championship</h2>
+        <ul id="f1-standings-list" style="list-style: none; padding: 0; margin: 0; font-size: 1em;">
+          <!-- Standings will be inserted here by JavaScript -->
+        </ul>
+      </div>
       <div class="calendar-list" style="flex: 1 1 320px; min-width: 220px;">
         <h2>2025 Formula 1 Calendar</h2>
         <!-- Interactive calendar: will update automatically to show next 4 races -->
@@ -113,6 +120,30 @@
     </div>
     <!-- Script to update the calendar automatically -->
     <script>
+      // 2025 World Drivers Championship Standings (example data, update as needed)
+      const f1Standings = [
+        { pos: 1, driver: "Max Verstappen", team: "Red Bull Racing", points: 210 },
+        { pos: 2, driver: "Charles Leclerc", team: "Ferrari", points: 178 },
+        { pos: 3, driver: "Lewis Hamilton", team: "Mercedes", points: 162 },
+        { pos: 4, driver: "Lando Norris", team: "McLaren", points: 145 },
+        { pos: 5, driver: "Carlos Sainz", team: "Ferrari", points: 130 },
+        { pos: 6, driver: "Sergio Perez", team: "Red Bull Racing", points: 120 },
+        { pos: 7, driver: "George Russell", team: "Mercedes", points: 110 },
+        { pos: 8, driver: "Oscar Piastri", team: "McLaren", points: 98 },
+        { pos: 9, driver: "Fernando Alonso", team: "Aston Martin", points: 80 },
+        { pos: 10, driver: "Lance Stroll", team: "Aston Martin", points: 65 }
+      ];
+      // Render standings
+      const standingsList = document.getElementById('f1-standings-list');
+      f1Standings.forEach(driver => {
+        const li = document.createElement('li');
+        li.style.padding = '6px 0';
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.alignItems = 'center';
+        li.innerHTML = `<span style='font-weight:bold;'>${driver.pos}.</span> <span style='flex:1; margin-left:8px;'>${driver.driver} <span style='color:#888; font-size:0.95em;'>(${driver.team})</span></span> <span style='font-weight:bold; color:#d81b60;'>${driver.points}</span>`;
+        standingsList.appendChild(li);
+      });
       // Full 2025 F1 season races (add or edit as needed)
       const f1FullSeason = [
         { name: "Australian GP", date: "2025-03-16" },
