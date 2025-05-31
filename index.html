@@ -66,26 +66,9 @@
       Frontend dev. F1 addict. Breaking boundaries, one <span style="color: #ff69b4; font-weight:bold;">line of code</span> at a time.
     </p>
 
-    <!-- F1 Car SVG -->
-    <div class="car-svg-container" style="width: 80vw; max-width: 600px;">
-      <svg class="car-svg-tweaked" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Rear Wing -->
-        <rect x="40" y="80" width="30" height="20" rx="4" fill="#ff69b4" opacity="0.7"/>
-        <!-- Front Wing -->
-        <rect x="530" y="80" width="30" height="20" rx="4" fill="#ff69b4" opacity="0.7"/>
-        <!-- Car Body -->
-        <rect x="70" y="90" width="460" height="18" rx="8" fill="#ff69b4"/>
-        <!-- Cockpit -->
-        <ellipse cx="270" cy="99" rx="22" ry="9" fill="#181818" />
-        <!-- Sidepod (grey detail, replaced with black for your palette) -->
-        <rect x="120" y="98" width="220" height="5" rx="2.5" fill="#181818"/>
-        <!-- Engine Cover -->
-        <rect x="340" y="95" width="110" height="5" rx="2.5" fill="#181818"/>
-        <!-- Rear Wheel -->
-        <circle cx="90" cy="109" r="18" fill="#000" stroke="#181818" stroke-width="5"/>
-        <!-- Front Wheel -->
-        <circle cx="500" cy="109" r="18" fill="#000" stroke="#181818" stroke-width="5"/>
-      </svg>
+    <!-- Professional Hero Image (replace animated car SVG) -->
+    <div class="hero-image-container" style="width: 80vw; max-width: 480px; margin: 0 auto;">
+      <img src="img/laptop.jpg" alt="Professional workspace with laptop" style="width: 100%; border-radius: 18px; box-shadow: 0 8px 32px #ff69b488; object-fit: cover; min-height: 180px; min-width: 180px;">
     </div>
     <style>
       /* Fade-in for headline and subheading */
@@ -117,19 +100,6 @@
       @keyframes underlineGrow {
         from { width: 0; opacity: 0; }
         to { width: 80px; opacity: 1; }
-      }
-      /* Car SVG drop shadow and gentle left-right animation */
-      .car-svg-tweaked {
-        filter: drop-shadow(0 8px 32px #ff69b488);
-        animation: carMove 3.5s cubic-bezier(.5,1.5,.5,1) 0.7s 1 both, carBounce 2.5s ease-in-out 4s infinite alternate;
-      }
-      @keyframes carMove {
-        from { transform: translateX(-60px) scale(0.95); opacity: 0; }
-        to { transform: translateX(0) scale(1); opacity: 1; }
-      }
-      @keyframes carBounce {
-        from { transform: translateY(0); }
-        to { transform: translateY(-10px); }
       }
       /* Responsive tweaks for mobile */
       @media (max-width: 600px) {
