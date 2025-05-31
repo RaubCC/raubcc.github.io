@@ -13,23 +13,23 @@
 </head>
 <body>
   <!-- Navigation bar: Simple F1-style navigation -->
-  <nav class="navbar">
+  <nav class="navbar" style="background-color: #333; color: #fff; padding: 10px;">
     <!-- Logo or site name -->
-    <div class="navbar-logo">
+    <div class="navbar-logo" style="font-size: 1.5em; font-weight: bold;">
       <!-- You can use an image or just text for your logo -->
       <span class="site-title">My Personal Garage</span>
     </div>
     <!-- Navigation links -->
-    <ul class="navbar-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#bio">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#portfolio">Projects</a></li>
+    <ul class="navbar-links" style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
+      <li><a href="#hero" style="color: #fff; text-decoration: none;">Home</a></li>
+      <li><a href="#bio" style="color: #fff; text-decoration: none;">About</a></li>
+      <li><a href="#skills" style="color: #fff; text-decoration: none;">Skills</a></li>
+      <li><a href="#portfolio" style="color: #fff; text-decoration: none;">Projects</a></li>
     </ul>
   </nav>
 
-  <!-- HERO BANNER SECTION -->
-  <section style="
+  <!-- Hero section: This is the top part of your website -->
+  <section class="hero" id="hero" style="
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -38,53 +38,39 @@
     background: linear-gradient(135deg, #000 65%, #ff69b4 100%);
     position: relative;
     overflow: hidden;
+    text-align: center;
   ">
+    <!-- Hero Image -->
+    <img src="img/laptop.jpg" alt="Laptop on desk" style="
+      width: 220px;
+      max-width: 60vw;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #ff69b488;
+      margin-bottom: 2em;
+      border: 3px solid #ff69b4;
+    ">
     <!-- Main Heading -->
     <h1 style="
       color: #fff;
-      font-size: 3rem;
+      font-size: 2.7rem;
+      font-family: 'Bebas Neue', Arial, sans-serif;
       font-weight: bold;
       margin-bottom: 0.5em;
       letter-spacing: -1px;
-      text-align: center;
       text-shadow: 0 2px 20px #ff69b488;
     ">
-      Engineering My Own <br>
-      <span style="color: #ff69b4;">Race Line</span>
+      Engineering My Own <span style="color: #ff69b4;">Race Line</span>
     </h1>
-
     <!-- Subheading -->
     <p style="
       color: #e0e0e0;
-      font-size: 1.3rem;
-      text-align: center;
-      max-width: 450px;
-      margin-bottom: 2em;
+      font-size: 1.2rem;
+      max-width: 420px;
+      margin: 0 auto 2em auto;
+      font-family: 'Montserrat', Arial, sans-serif;
     ">
       Frontend dev. F1 addict. Breaking boundaries, one <span style="color: #ff69b4; font-weight:bold;">line of code</span> at a time.
     </p>
-
-    <!-- F1 Car SVG -->
-    <div style="width: 80vw; max-width: 600px;">
-      <svg viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Rear Wing -->
-        <rect x="40" y="80" width="30" height="20" rx="4" fill="#ff69b4" opacity="0.7"/>
-        <!-- Front Wing -->
-        <rect x="530" y="80" width="30" height="20" rx="4" fill="#ff69b4" opacity="0.7"/>
-        <!-- Car Body -->
-        <rect x="70" y="90" width="460" height="18" rx="8" fill="#ff69b4"/>
-        <!-- Cockpit -->
-        <ellipse cx="270" cy="99" rx="22" ry="9" fill="#181818" />
-        <!-- Sidepod (grey detail, replaced with black for your palette) -->
-        <rect x="120" y="98" width="220" height="5" rx="2.5" fill="#181818"/>
-        <!-- Engine Cover -->
-        <rect x="340" y="95" width="110" height="5" rx="2.5" fill="#181818"/>
-        <!-- Rear Wheel -->
-        <circle cx="90" cy="109" r="18" fill="#000" stroke="#181818" stroke-width="5"/>
-        <!-- Front Wheel -->
-        <circle cx="500" cy="109" r="18" fill="#000" stroke="#181818" stroke-width="5"/>
-      </svg>
-    </div>
   </section>
 
   <!-- Main content: Bio and Skills side by side on large screens -->
@@ -126,97 +112,24 @@
 
   <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
   <section class="f1-calendar-banner" style="margin-bottom: 32px; text-align: center;">
-    <div class="calendar-flex row justify-content-center">
-      <div class="calendar-list col-md-6 mb-4" style="min-width: 220px; text-align: left;">
+    <div class="calendar-flex">
+      <div class="calendar-list" style="flex: 1 1 320px; min-width: 220px; text-align: left;">
         <h2>2025 Formula 1 Calendar</h2>
         <!-- Interactive calendar: will update automatically to show next 4 races -->
-        <ul class="f1-calendar list-group" id="f1-calendar-list">
+        <ul class="f1-calendar" id="f1-calendar-list">
           <!-- Races will be inserted here by JavaScript -->
         </ul>
+        <div style="margin-top: 24px; background: #fff; border: 1.5px solid #ff69b4; border-radius: 8px; max-height: 220px; overflow-y: auto;">
+          <h3 style="font-family: 'Bebas Neue', Arial, sans-serif; color: #ff69b4; margin: 12px 0 8px 0;">Full Season</h3>
+          <ul class="list-group list-group-flush" id="f1-full-calendar-list" style="font-size: 0.98em;">
+            <!-- Full season races will be inserted here by JavaScript -->
+          </ul>
+        </div>
       </div>
-      <div class="race-weekend col-md-6" id="race-weekend" style="text-align: left;">
+      <div class="race-weekend" id="race-weekend" style="text-align: left;">
         <!-- This Weekend info will be inserted by JavaScript -->
       </div>
     </div>
-    <!-- Script to update the calendar automatically -->
-    <script>
-      // 2025 Driver Standings (mirrors F1.com as of May 28, 2025)
-      const f1Standings = [
-        { pos: 1, driver: "Max Verstappen", team: "Red Bull Racing", points: 235 },
-        { pos: 2, driver: "Charles Leclerc", team: "Ferrari", points: 202 },
-        { pos: 3, driver: "Lewis Hamilton", team: "Mercedes", points: 185 },
-        { pos: 4, driver: "Lando Norris", team: "McLaren", points: 170 },
-        { pos: 5, driver: "Carlos Sainz", team: "Ferrari", points: 150 },
-        { pos: 6, driver: "Sergio Perez", team: "Red Bull Racing", points: 138 },
-        { pos: 7, driver: "George Russell", team: "Mercedes", points: 125 },
-        { pos: 8, driver: "Oscar Piastri", team: "McLaren", points: 110 },
-        { pos: 9, driver: "Fernando Alonso", team: "Aston Martin", points: 92 },
-        { pos: 10, driver: "Lance Stroll", team: "Aston Martin", points: 75 }
-      ];
-      // Render standings
-      // ...existing code...
-      // Full 2025 F1 season races (add or edit as needed)
-      const f1FullSeason = [
-        { name: "Australian GP", date: "2025-03-16" },
-        { name: "Saudi Arabian GP", date: "2025-03-23" },
-        { name: "Bahrain GP", date: "2025-04-06" },
-        { name: "Chinese GP", date: "2025-04-20" },
-        { name: "Miami GP", date: "2025-05-04" },
-        { name: "Emilia Romagna GP", date: "2025-05-18" },
-        { name: "Monaco GP", date: "2025-05-25" },
-        { name: "Canadian GP", date: "2025-06-08" },
-        { name: "Austrian GP", date: "2025-06-22" },
-        { name: "British GP", date: "2025-07-06" },
-        { name: "Hungarian GP", date: "2025-07-20" },
-        { name: "Belgian GP", date: "2025-08-03" },
-        { name: "Dutch GP", date: "2025-08-24" },
-        { name: "Italian GP", date: "2025-09-07" },
-        { name: "Singapore GP", date: "2025-09-21" },
-        { name: "Japanese GP", date: "2025-10-05" },
-        { name: "United States GP", date: "2025-10-19" },
-        { name: "Mexico City GP", date: "2025-10-26" },
-        { name: "Brazilian GP", date: "2025-11-09" },
-        { name: "Las Vegas GP", date: "2025-11-22" },
-        { name: "Qatar GP", date: "2025-11-30" },
-        { name: "Abu Dhabi GP", date: "2025-12-07" }
-      ];
-      // ...existing code...
-      // Get today's date
-      const today = new Date();
-      // Find the next 4 races
-      const upcomingRaces = f1FullSeason.filter(race => new Date(race.date) >= today).slice(0, 4);
-      // Display the next 4 races in the interactive calendar
-      const calendarList = document.getElementById('f1-calendar-list');
-      calendarList.innerHTML = '';
-      upcomingRaces.forEach((race, idx) => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item list-group-item-action';
-        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-        li.setAttribute('role', 'button');
-        li.onclick = function() { highlightRace(this, idx); };
-        calendarList.appendChild(li);
-      });
-      // ...existing code...
-      // Highlight a race when clicked and update the weekend info
-      function highlightRace(element, idx) {
-        const races = document.querySelectorAll('.f1-calendar li');
-        races.forEach(race => race.classList.remove('active'));
-        element.classList.add('active');
-        showRaceWeekend(upcomingRaces[idx]);
-      }
-      // ...existing code...
-      // By default, highlight the first race and show its weekend info
-      if (upcomingRaces.length > 0) {
-        const firstLi = document.querySelector('.f1-calendar li');
-        if (firstLi) {
-          firstLi.classList.add('active');
-          showRaceWeekend(upcomingRaces[0]);
-        }
-      } else {
-        showRaceWeekend(null);
-      }
-      // ...existing code...
-    </script>
   </section>
 
   <!-- Add Bootstrap JS for interactive components (like modals, dropdowns, etc.) -->
