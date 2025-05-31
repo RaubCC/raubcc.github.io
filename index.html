@@ -29,16 +29,15 @@
   </nav>
 
   <!-- Hero section: This is the top part of your website -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" style="text-align: center;">
     <!-- Main header with racing font -->
     <h1 class="paddock-header">Welcome To my Paddock</h1>
     <!-- Strong subheader below the main header -->
     <h2 class="paddock-subheader">Driven by Code. Inspired by Speed.</h2>
-    
   </section>
 
   <!-- Main content: Bio and Skills side by side on large screens -->
-  <div class="main-content" style="text-align: right;">
+  <div class="main-content" style="text-align: left;">
     <!-- Bio section: A short introduction about yourself -->
     <section class="bio" id="bio">
       <h2>About Me</h2>
@@ -48,7 +47,7 @@
     </section>
 
     <!-- Photo Gallery section: Now in its own space -->
-    <section class="photo-gallery-section" id="gallery">
+    <section class="photo-gallery-section" id="gallery" style="text-align: center;">
       <h2>Photo Showcase</h2>
       <div class="photo-gallery-slider">
         <button class="gallery-arrow left-arrow" onclick="moveSlide(-1)">&#8592;</button>
@@ -56,26 +55,9 @@
         <button class="gallery-arrow right-arrow" onclick="moveSlide(1)">&#8594;</button>
       </div>
     </section>
-    <script>
-      // Updated sliding gallery for beginners
-      const galleryImages = [
-        'img/IMG_1908.JPEG',
-        'img/IMG_1913.JPG',
-        'img/IMG_1918.JPEG',
-        'img/IMG_2015.JPG',
-        'img/IMG_6479.JPG'
-      ];
-      let currentImg = 0;
-      function moveSlide(direction) {
-        currentImg += direction;
-        if (currentImg < 0) currentImg = galleryImages.length - 1;
-        if (currentImg >= galleryImages.length) currentImg = 0;
-        document.getElementById('gallery-img').src = galleryImages[currentImg];
-      }
-    </script>
 
     <!-- Skills section: List your web development skills -->
-    <section class="skills" id="skills">
+    <section class="skills" id="skills" style="text-align: left;">
       <h2>My Skills</h2>
       <ul>
         <li><span class="skill-icon">💻</span>HTML</li>
@@ -86,15 +68,15 @@
   </div>
 
   <!-- Portfolio section: Placeholder for your future projects -->
-  <section class="portfolio" id="portfolio" style="text-align: right;">
+  <section class="portfolio" id="portfolio" style="text-align: left;">
     <h2>My Projects</h2>
     <p>Check back soon to see the projects I create during my course!</p>
   </section>
 
   <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
-  <section class="f1-calendar-banner" style="margin-bottom: 32px; text-align: right;">
+  <section class="f1-calendar-banner" style="margin-bottom: 32px; text-align: center;">
     <div class="calendar-flex">
-      <div class="calendar-list" style="flex: 1 1 320px; min-width: 220px;">
+      <div class="calendar-list" style="flex: 1 1 320px; min-width: 220px; text-align: left;">
         <h2>2025 Formula 1 Calendar</h2>
         <!-- Interactive calendar: will update automatically to show next 4 races -->
         <ul class="f1-calendar" id="f1-calendar-list">
@@ -107,155 +89,10 @@
           </ul>
         </div>
       </div>
-      <div class="race-weekend" id="race-weekend">
+      <div class="race-weekend" id="race-weekend" style="text-align: left;">
         <!-- This Weekend info will be inserted by JavaScript -->
       </div>
     </div>
-    <!-- Script to update the calendar automatically -->
-    <script>
-      // 2025 Driver Standings (mirrors F1.com as of May 28, 2025)
-      const f1Standings = [
-        { pos: 1, driver: "Max Verstappen", team: "Red Bull Racing", points: 235 },
-        { pos: 2, driver: "Charles Leclerc", team: "Ferrari", points: 202 },
-        { pos: 3, driver: "Lewis Hamilton", team: "Mercedes", points: 185 },
-        { pos: 4, driver: "Lando Norris", team: "McLaren", points: 170 },
-        { pos: 5, driver: "Carlos Sainz", team: "Ferrari", points: 150 },
-        { pos: 6, driver: "Sergio Perez", team: "Red Bull Racing", points: 138 },
-        { pos: 7, driver: "George Russell", team: "Mercedes", points: 125 },
-        { pos: 8, driver: "Oscar Piastri", team: "McLaren", points: 110 },
-        { pos: 9, driver: "Fernando Alonso", team: "Aston Martin", points: 92 },
-        { pos: 10, driver: "Lance Stroll", team: "Aston Martin", points: 75 }
-      ];
-      // Render standings
-      const standingsList = document.getElementById('f1-standings-list');
-      f1Standings.forEach(driver => {
-        const li = document.createElement('li');
-        li.style.padding = '6px 0';
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.alignItems = 'center';
-        li.innerHTML = `<span style='font-weight:bold;'>${driver.pos}.</span> <span style='flex:1; margin-left:8px;'>${driver.driver} <span style='color:#888; font-size:0.95em;'>(${driver.team})</span></span> <span style='font-weight:bold; color:#d81b60;'>${driver.points}</span>`;
-        standingsList.appendChild(li);
-      });
-      // Full 2025 F1 season races (add or edit as needed)
-      const f1FullSeason = [
-        { name: "Australian GP", date: "2025-03-16" },
-        { name: "Saudi Arabian GP", date: "2025-03-23" },
-        { name: "Bahrain GP", date: "2025-04-06" },
-        { name: "Chinese GP", date: "2025-04-20" },
-        { name: "Miami GP", date: "2025-05-04" },
-        { name: "Emilia Romagna GP", date: "2025-05-18" },
-        { name: "Monaco GP", date: "2025-05-25" },
-        { name: "Canadian GP", date: "2025-06-08" },
-        { name: "Austrian GP", date: "2025-06-22" },
-        { name: "British GP", date: "2025-07-06" },
-        { name: "Hungarian GP", date: "2025-07-20" },
-        { name: "Belgian GP", date: "2025-08-03" },
-        { name: "Dutch GP", date: "2025-08-24" },
-        { name: "Italian GP", date: "2025-09-07" },
-        { name: "Singapore GP", date: "2025-09-21" },
-        { name: "Japanese GP", date: "2025-10-05" },
-        { name: "United States GP", date: "2025-10-19" },
-        { name: "Mexico City GP", date: "2025-10-26" },
-        { name: "Brazilian GP", date: "2025-11-09" },
-        { name: "Las Vegas GP", date: "2025-11-22" },
-        { name: "Qatar GP", date: "2025-11-30" },
-        { name: "Abu Dhabi GP", date: "2025-12-07" }
-      ];
-      // Add weekend info for interactive calendar (next 4 races)
-      const f1Races = f1FullSeason.map(race => {
-        // Add weekend info for a few races as an example
-        if (race.name === "Monaco GP") {
-          return { ...race, weekend: [
-            { session: "Free Practice", time: "Fri, May 23, 7:30 AM EST" },
-            { session: "Qualifying", time: "Sat, May 24, 10:00 AM EST" },
-            { session: "Race", time: "Sun, May 25, 9:00 AM EST" }
-          ] };
-        }
-        if (race.name === "Canadian GP") {
-          return { ...race, weekend: [
-            { session: "Free Practice", time: "Fri, Jun 6, 7:30 AM EST" },
-            { session: "Qualifying", time: "Sat, Jun 7, 10:00 AM EST" },
-            { session: "Race", time: "Sun, Jun 8, 9:00 AM EST" }
-          ] };
-        }
-        if (race.name === "Austrian GP") {
-          return { ...race, weekend: [
-            { session: "Free Practice", time: "Fri, Jun 20, 7:30 AM EST" },
-            { session: "Qualifying", time: "Sat, Jun 21, 10:00 AM EST" },
-            { session: "Race", time: "Sun, Jun 22, 9:00 AM EST" }
-          ] };
-        }
-        if (race.name === "British GP") {
-          return { ...race, weekend: [
-            { session: "Free Practice", time: "Fri, Jul 4, 7:30 AM EST" },
-            { session: "Qualifying", time: "Sat, Jul 5, 10:00 AM EST" },
-            { session: "Race", time: "Sun, Jul 6, 9:00 AM EST" }
-          ] };
-        }
-        // Default: no weekend info
-        return race;
-      });
-      // Get today's date
-      const today = new Date();
-      // Find the next 4 races
-      const upcomingRaces = f1Races.filter(race => new Date(race.date) >= today).slice(0, 4);
-      // Display the next 4 races in the interactive calendar
-      const calendarList = document.getElementById('f1-calendar-list');
-      upcomingRaces.forEach((race, idx) => {
-        const li = document.createElement('li');
-        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-        li.onclick = function() { highlightRace(this, idx); };
-        calendarList.appendChild(li);
-      });
-      // Show the next race as "This Weekend"
-      function showRaceWeekend(race) {
-        const raceWeekendDiv = document.getElementById('race-weekend');
-        if (!race || !race.weekend) {
-          raceWeekendDiv.innerHTML = '<h3>No more races this season or no details available!</h3>';
-          return;
-        }
-        let html = `<h3>This Weekend: ${race.name}</h3><ul class='race-times'>`;
-        race.weekend.forEach(session => {
-          html += `<li><strong>${session.session}:</strong> ${session.time}</li>`;
-        });
-        html += '</ul>';
-        raceWeekendDiv.innerHTML = html;
-      }
-      // Highlight a race when clicked and update the weekend info
-      function highlightRace(element, idx) {
-        const races = document.querySelectorAll('.f1-calendar li');
-        races.forEach(race => race.classList.remove('highlighted-race'));
-        element.classList.add('highlighted-race');
-        showRaceWeekend(upcomingRaces[idx]);
-      }
-      // By default, highlight the first race and show its weekend info
-      if (upcomingRaces.length > 0) {
-        const firstLi = document.querySelector('.f1-calendar li');
-        if (firstLi) {
-          firstLi.classList.add('highlighted-race');
-          showRaceWeekend(upcomingRaces[0]);
-        }
-      } else {
-        showRaceWeekend(null);
-      }
-      // Render the full season calendar below (scrollable)
-      const fullCalendarList = document.getElementById('f1-full-calendar-list');
-      let nextRaceFound = false;
-      f1FullSeason.forEach(race => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-        // Highlight the next race in the full list
-        const raceDate = new Date(race.date);
-        if (!nextRaceFound && raceDate >= today) {
-          li.style.background = '#ffe066';
-          li.style.fontWeight = 'bold';
-          nextRaceFound = true;
-        }
-        fullCalendarList.appendChild(li);
-      });
-    </script>
   </section>
 
   <!-- Add Bootstrap JS for interactive components (like modals, dropdowns, etc.) -->
