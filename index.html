@@ -29,7 +29,7 @@
   </nav>
 
   <!-- HERO BANNER SECTION -->
-  <section style="
+  <section class="hero-banner-tweaked" style="
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     overflow: hidden;
   ">
     <!-- Main Heading -->
-    <h1 style="
+    <h1 class="hero-headline-tweaked" style="
       color: #fff;
       font-size: 3rem;
       font-weight: bold;
@@ -48,13 +48,15 @@
       letter-spacing: -1px;
       text-align: center;
       text-shadow: 0 2px 20px #ff69b488;
+      position: relative;
     ">
       Engineering My Own <br>
       <span style="color: #ff69b4;">Race Line</span>
+      <span class="headline-underline"></span>
     </h1>
 
     <!-- Subheading -->
-    <p style="
+    <p class="hero-subheading-tweaked" style="
       color: #e0e0e0;
       font-size: 1.3rem;
       text-align: center;
@@ -65,8 +67,8 @@
     </p>
 
     <!-- F1 Car SVG -->
-    <div style="width: 80vw; max-width: 600px;">
-      <svg viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="car-svg-container" style="width: 80vw; max-width: 600px;">
+      <svg class="car-svg-tweaked" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Rear Wing -->
         <rect x="40" y="80" width="30" height="20" rx="4" fill="#ff69b4" opacity="0.7"/>
         <!-- Front Wing -->
@@ -87,7 +89,7 @@
     </div>
 
     <!-- Call to Action Button -->
-    <a href="#contact" style="
+    <a href="#contact" class="cta-btn-tweaked" style="
       display: inline-block;
       margin-top: 2em;
       background: #ff69b4;
@@ -98,12 +100,72 @@
       text-decoration: none;
       box-shadow: 0 4px 24px #ff69b488;
       transition: background 0.2s, color 0.2s, transform 0.15s;
+      position: relative;
+      z-index: 1;
     "
-    onmouseover="this.style.background='#ff987b';this.style.transform='scale(1.05)';"
-    onmouseout="this.style.background='#ff69b4';this.style.transform='scale(1)';"
     >
       Let’s Connect
     </a>
+    <style>
+      /* Fade-in for headline and subheading */
+      .hero-headline-tweaked, .hero-subheading-tweaked {
+        opacity: 0;
+        animation: fadeInHero 1.2s ease-out forwards;
+      }
+      .hero-subheading-tweaked {
+        animation-delay: 0.5s;
+      }
+      @keyframes fadeInHero {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      /* Underline accent for headline */
+      .headline-underline {
+        display: block;
+        width: 80px;
+        height: 6px;
+        background: repeating-linear-gradient(90deg, #fff 0 10px, #ff69b4 10px 20px);
+        border-radius: 3px;
+        margin: 12px auto 0 auto;
+        animation: underlineGrow 1.2s 0.7s cubic-bezier(.5,1.5,.5,1) forwards;
+        opacity: 0;
+      }
+      .hero-headline-tweaked .headline-underline {
+        opacity: 1;
+      }
+      @keyframes underlineGrow {
+        from { width: 0; opacity: 0; }
+        to { width: 80px; opacity: 1; }
+      }
+      /* Car SVG drop shadow and gentle left-right animation */
+      .car-svg-tweaked {
+        filter: drop-shadow(0 8px 32px #ff69b488);
+        animation: carMove 3.5s cubic-bezier(.5,1.5,.5,1) 0.7s 1 both, carBounce 2.5s ease-in-out 4s infinite alternate;
+      }
+      @keyframes carMove {
+        from { transform: translateX(-60px) scale(0.95); opacity: 0; }
+        to { transform: translateX(0) scale(1); opacity: 1; }
+      }
+      @keyframes carBounce {
+        from { transform: translateY(0); }
+        to { transform: translateY(-10px); }
+      }
+      /* CTA Button pulse animation */
+      .cta-btn-tweaked {
+        box-shadow: 0 4px 24px #ff69b488, 0 0 0 0 #ff69b4;
+        animation: ctaPulse 2.2s infinite;
+      }
+      @keyframes ctaPulse {
+        0% { box-shadow: 0 4px 24px #ff69b488, 0 0 0 0 #ff69b4; }
+        70% { box-shadow: 0 4px 24px #ff69b488, 0 0 0 16px rgba(255,105,180,0); }
+        100% { box-shadow: 0 4px 24px #ff69b488, 0 0 0 0 #ff69b4; }
+      }
+      /* Responsive tweaks for mobile */
+      @media (max-width: 600px) {
+        .hero-headline-tweaked { font-size: 2em !important; }
+        .car-svg-container { max-width: 98vw !important; }
+      }
+    </style>
   </section>
 
   <!-- Main content: Bio and Skills side by side on large screens -->
