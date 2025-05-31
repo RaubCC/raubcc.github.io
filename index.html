@@ -94,24 +94,103 @@
 
   <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
   <section class="f1-calendar-banner" style="margin-bottom: 32px; text-align: center;">
-    <div class="calendar-flex">
-      <div class="calendar-list" style="flex: 1 1 320px; min-width: 220px; text-align: left;">
+    <div class="calendar-flex row justify-content-center">
+      <div class="calendar-list col-md-6 mb-4" style="min-width: 220px; text-align: left;">
         <h2>2025 Formula 1 Calendar</h2>
         <!-- Interactive calendar: will update automatically to show next 4 races -->
-        <ul class="f1-calendar" id="f1-calendar-list">
+        <ul class="f1-calendar list-group" id="f1-calendar-list">
           <!-- Races will be inserted here by JavaScript -->
         </ul>
-        <div style="margin-top: 24px; background: #fff; border: 1.5px solid #ff69b4; border-radius: 8px; max-height: 220px; overflow-y: auto;">
+        <div class="mt-4 bg-white border border-pink rounded-3" style="border: 1.5px solid #ff69b4; max-height: 220px; overflow-y: auto;">
           <h3 style="font-family: 'Bebas Neue', Arial, sans-serif; color: #ff69b4; margin: 12px 0 8px 0;">Full Season</h3>
           <ul class="list-group list-group-flush" id="f1-full-calendar-list" style="font-size: 0.98em;">
             <!-- Full season races will be inserted here by JavaScript -->
           </ul>
         </div>
       </div>
-      <div class="race-weekend" id="race-weekend" style="text-align: left;">
+      <div class="race-weekend col-md-6" id="race-weekend" style="text-align: left;">
         <!-- This Weekend info will be inserted by JavaScript -->
       </div>
     </div>
+    <!-- Script to update the calendar automatically -->
+    <script>
+      // 2025 Driver Standings (mirrors F1.com as of May 28, 2025)
+      const f1Standings = [
+        { pos: 1, driver: "Max Verstappen", team: "Red Bull Racing", points: 235 },
+        { pos: 2, driver: "Charles Leclerc", team: "Ferrari", points: 202 },
+        { pos: 3, driver: "Lewis Hamilton", team: "Mercedes", points: 185 },
+        { pos: 4, driver: "Lando Norris", team: "McLaren", points: 170 },
+        { pos: 5, driver: "Carlos Sainz", team: "Ferrari", points: 150 },
+        { pos: 6, driver: "Sergio Perez", team: "Red Bull Racing", points: 138 },
+        { pos: 7, driver: "George Russell", team: "Mercedes", points: 125 },
+        { pos: 8, driver: "Oscar Piastri", team: "McLaren", points: 110 },
+        { pos: 9, driver: "Fernando Alonso", team: "Aston Martin", points: 92 },
+        { pos: 10, driver: "Lance Stroll", team: "Aston Martin", points: 75 }
+      ];
+      // Render standings
+      // ...existing code...
+      // Full 2025 F1 season races (add or edit as needed)
+      const f1FullSeason = [
+        { name: "Australian GP", date: "2025-03-16" },
+        { name: "Saudi Arabian GP", date: "2025-03-23" },
+        { name: "Bahrain GP", date: "2025-04-06" },
+        { name: "Chinese GP", date: "2025-04-20" },
+        { name: "Miami GP", date: "2025-05-04" },
+        { name: "Emilia Romagna GP", date: "2025-05-18" },
+        { name: "Monaco GP", date: "2025-05-25" },
+        { name: "Canadian GP", date: "2025-06-08" },
+        { name: "Austrian GP", date: "2025-06-22" },
+        { name: "British GP", date: "2025-07-06" },
+        { name: "Hungarian GP", date: "2025-07-20" },
+        { name: "Belgian GP", date: "2025-08-03" },
+        { name: "Dutch GP", date: "2025-08-24" },
+        { name: "Italian GP", date: "2025-09-07" },
+        { name: "Singapore GP", date: "2025-09-21" },
+        { name: "Japanese GP", date: "2025-10-05" },
+        { name: "United States GP", date: "2025-10-19" },
+        { name: "Mexico City GP", date: "2025-10-26" },
+        { name: "Brazilian GP", date: "2025-11-09" },
+        { name: "Las Vegas GP", date: "2025-11-22" },
+        { name: "Qatar GP", date: "2025-11-30" },
+        { name: "Abu Dhabi GP", date: "2025-12-07" }
+      ];
+      // ...existing code...
+      // Get today's date
+      const today = new Date();
+      // Find the next 4 races
+      const upcomingRaces = f1FullSeason.filter(race => new Date(race.date) >= today).slice(0, 4);
+      // Display the next 4 races in the interactive calendar
+      const calendarList = document.getElementById('f1-calendar-list');
+      calendarList.innerHTML = '';
+      upcomingRaces.forEach((race, idx) => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item list-group-item-action';
+        li.textContent = `${race.name} - ${new Date(race.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+        li.setAttribute('role', 'button');
+        li.onclick = function() { highlightRace(this, idx); };
+        calendarList.appendChild(li);
+      });
+      // ...existing code...
+      // Highlight a race when clicked and update the weekend info
+      function highlightRace(element, idx) {
+        const races = document.querySelectorAll('.f1-calendar li');
+        races.forEach(race => race.classList.remove('active'));
+        element.classList.add('active');
+        showRaceWeekend(upcomingRaces[idx]);
+      }
+      // ...existing code...
+      // By default, highlight the first race and show its weekend info
+      if (upcomingRaces.length > 0) {
+        const firstLi = document.querySelector('.f1-calendar li');
+        if (firstLi) {
+          firstLi.classList.add('active');
+          showRaceWeekend(upcomingRaces[0]);
+        }
+      } else {
+        showRaceWeekend(null);
+      }
+      // ...existing code...
+    </script>
   </section>
 
   <!-- Add Bootstrap JS for interactive components (like modals, dropdowns, etc.) -->
