@@ -157,42 +157,6 @@
         <img id="gallery-img" src="img/me.png" alt="Photo showcase" class="gallery-img">
         <button class="gallery-arrow right-arrow" onclick="moveSlide(1)">&#8594;</button>
       </div>
-      <!-- Animated Corgi SVG pops up below the gallery -->
-      <div id="corgi-pop" style="margin-top: 24px; display: flex; justify-content: center; align-items: flex-end; height: 80px;">
-        <svg id="corgi-svg" width="90" height="70" viewBox="0 0 90 70" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(60px); opacity: 0;">
-          <!-- Corgi body -->
-          <ellipse cx="45" cy="50" rx="28" ry="16" fill="#f9c97b"/>
-          <!-- Corgi face -->
-          <ellipse cx="45" cy="38" rx="14" ry="12" fill="#fff"/>
-          <ellipse cx="45" cy="41" rx="10" ry="8" fill="#f9c97b"/>
-          <!-- Ears -->
-          <ellipse cx="33" cy="28" rx="5" ry="8" fill="#fff"/>
-          <ellipse cx="57" cy="28" rx="5" ry="8" fill="#fff"/>
-          <ellipse cx="33" cy="28" rx="3.5" ry="6" fill="#f9c97b"/>
-          <ellipse cx="57" cy="28" rx="3.5" ry="6" fill="#f9c97b"/>
-          <!-- Eyes -->
-          <ellipse cx="41" cy="41" rx="1.2" ry="1.5" fill="#222"/>
-          <ellipse cx="49" cy="41" rx="1.2" ry="1.5" fill="#222"/>
-          <!-- Nose -->
-          <ellipse cx="45" cy="45" rx="1.5" ry="1" fill="#222"/>
-          <!-- Smile -->
-          <path d="M43 47 Q45 49 47 47" stroke="#222" stroke-width="1.2" fill="none"/>
-          <!-- Paws -->
-          <ellipse cx="36" cy="62" rx="3" ry="2" fill="#fff"/>
-          <ellipse cx="54" cy="62" rx="3" ry="2" fill="#fff"/>
-        </svg>
-      </div>
-      <script>
-        // Animate the corgi to pop up after a short delay
-        window.addEventListener('DOMContentLoaded', function() {
-          setTimeout(function() {
-            var corgi = document.getElementById('corgi-svg');
-            corgi.style.transition = 'transform 0.7s cubic-bezier(.5,1.5,.5,1), opacity 0.7s';
-            corgi.style.transform = 'translateY(0)';
-            corgi.style.opacity = '1';
-          }, 800);
-        });
-      </script>
     </section>
 
     <!-- Skills section: List your web development skills -->
