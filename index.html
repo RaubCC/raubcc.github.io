@@ -28,32 +28,83 @@
     </ul>
   </nav>
 
-  <!-- Hero section: This is the top part of your website -->
-  <section class="hero" id="hero" style="text-align: center;">
-    <!-- Main header with racing font -->
-    <h1 class="paddock-header animated-header">Welcome To my Paddock</h1>
-    <!-- Strong subheader below the main header -->
-    <h2 class="paddock-subheader animated-subheader">Driven by Code. Inspired by Speed.</h2>
+  <!-- HERO BANNER SECTION -->
+  <section style="
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000 60%, #00e3c1 100%);
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- Main Heading -->
+    <h1 style="
+      color: #fff;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      letter-spacing: -1px;
+      text-align: center;
+      text-shadow: 0 2px 20px #00e3c188;
+    ">
+      Engineering My Own <br>
+      <span style="color: #00e3c1;">Race Line</span>
+    </h1>
+
+    <!-- Subheading -->
+    <p style="
+      color: #e0e0e0;
+      font-size: 1.3rem;
+      text-align: center;
+      max-width: 450px;
+      margin-bottom: 2em;
+    ">
+      Frontend dev. F1 addict. Breaking boundaries, one <span style="color: #00e3c1; font-weight:bold;">line of code</span> at a time.
+    </p>
+
+    <!-- Mercedes F1 Car SVG -->
+    <div style="width: 80vw; max-width: 600px;">
+      <svg viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Rear Wing -->
+        <rect x="40" y="80" width="30" height="20" rx="4" fill="#00e3c1" opacity="0.6"/>
+        <!-- Front Wing -->
+        <rect x="530" y="80" width="30" height="20" rx="4" fill="#00e3c1" opacity="0.6"/>
+        <!-- Car Body -->
+        <rect x="70" y="90" width="460" height="18" rx="8" fill="#00e3c1"/>
+        <!-- Cockpit -->
+        <ellipse cx="270" cy="99" rx="22" ry="9" fill="#191919" />
+        <!-- Sidepod (grey detail) -->
+        <rect x="120" y="98" width="220" height="5" rx="2.5" fill="#b5b5b5"/>
+        <!-- Engine Cover (silver/black) -->
+        <rect x="340" y="95" width="110" height="5" rx="2.5" fill="#222"/>
+        <!-- Rear Wheel -->
+        <circle cx="90" cy="109" r="18" fill="#111" stroke="#b5b5b5" stroke-width="5"/>
+        <!-- Front Wheel -->
+        <circle cx="500" cy="109" r="18" fill="#111" stroke="#b5b5b5" stroke-width="5"/>
+      </svg>
+    </div>
+
+    <!-- Call to Action Button -->
+    <a href="#contact" style="
+      display: inline-block;
+      margin-top: 2em;
+      background: #00e3c1;
+      color: #181818;
+      font-weight: bold;
+      padding: 0.75em 2em;
+      border-radius: 2em;
+      text-decoration: none;
+      box-shadow: 0 4px 24px #00e3c188;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    "
+    onmouseover="this.style.background='#29e7ca';this.style.transform='scale(1.05)';"
+    onmouseout="this.style.background='#00e3c1';this.style.transform='scale(1)';"
+    >
+      Let’s Connect
+    </a>
   </section>
-  <style>
-    /* Simple fade-in and slide-down animation for hero section */
-    .animated-header {
-      opacity: 0;
-      transform: translateY(-40px);
-      animation: fadeSlideDown 1.2s ease-out forwards;
-    }
-    .animated-subheader {
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeSlideDown 1.2s 0.7s ease-out forwards;
-    }
-    @keyframes fadeSlideDown {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 
   <!-- Main content: Bio and Skills side by side on large screens -->
   <div class="main-content" style="text-align: left;">
