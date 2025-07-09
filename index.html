@@ -65,35 +65,6 @@
       </p>
     </section>
 
-    <!-- Photo Gallery section: Now in its own space -->
-    <section class="photo-gallery-section" id="gallery" style="text-align: center;">
-      <h2>Photo Showcase</h2>
-      <div class="photo-gallery-slider">
-        <button class="gallery-arrow left-arrow" onclick="moveSlide(-1)">&#8592;</button>
-        <img id="gallery-img" src="img/me.png" alt="Photo showcase" class="gallery-img">
-        <button class="gallery-arrow right-arrow" onclick="moveSlide(1)">&#8594;</button>
-      </div>
-      <!-- SVG Example: Simple racecar SVG for visual interest -->
-      <div style="margin-top: 16px;">
-        <!-- This SVG is a simple, beginner-friendly racecar illustration -->
-        <svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
-          <!-- Car body -->
-          <rect x="20" y="25" width="60" height="15" rx="7" fill="#d81b60" />
-          <!-- Cockpit -->
-          <rect x="60" y="20" width="18" height="10" rx="4" fill="#fff" stroke="#333" stroke-width="1" />
-          <!-- Front wing -->
-          <rect x="10" y="32" width="15" height="4" rx="2" fill="#333" />
-          <!-- Rear wing -->
-          <rect x="80" y="28" width="10" height="8" rx="2" fill="#333" />
-          <!-- Wheels -->
-          <circle cx="30" cy="45" r="6" fill="#222" />
-          <circle cx="70" cy="45" r="6" fill="#222" />
-        </svg>
-        <!-- End SVG -->
-        <!-- Comment: This SVG is for decoration and can be replaced with any SVG you like! -->
-      </div>
-    </section>
-
     <!-- Skills section: List your web development skills -->
     <section class="skills" id="skills" style="text-align: left;">
       <h2>My Skills</h2>
@@ -105,16 +76,18 @@
     </section>
   </div>
 
-  <!-- LinkedIn Badge Section: Shows your LinkedIn profile badge -->
-  <section class="linkedin-badge-section" style="text-align: center; margin: 32px 0;">
-    <h2>Connect with Me on LinkedIn</h2>
-    <!-- LinkedIn profile badge embed code -->
-    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="ccr4" data-version="v1">
-      <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ccr4?trk=profile-badge">Caitlin R.</a>
+  <!-- LinkedIn Badge Section: Shows your LinkedIn profile badge in its own neat spot -->
+  <section class="linkedin-badge-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 40px 0;">
+    <div style="background: #222; border-radius: 12px; padding: 24px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 340px; width: 100%;">
+      <h2 style="color: #fff; font-size: 1.4em; margin-bottom: 16px;">Connect with Me on LinkedIn</h2>
+      <!-- LinkedIn profile badge embed code -->
+      <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="ccr4" data-version="v1">
+        <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ccr4?trk=profile-badge">Caitlin R.</a>
+      </div>
     </div>
     <!-- LinkedIn badge script (required for badge to display) -->
     <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-    <!-- Comment: This section displays your LinkedIn badge. You can move it anywhere on your page! -->
+    <!-- Comment: This section displays your LinkedIn badge in a neat, centered card. -->
   </section>
 
   <!-- Portfolio section: Placeholder for your future projects -->
