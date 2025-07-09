@@ -76,9 +76,22 @@
     </section>
   </div>
 
-  <!-- LinkedIn Badge Section: Shows your LinkedIn profile badge in its own neat spot -->
-  <section class="linkedin-badge-section" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 40px 0;">
-    <div style="background: #222; border-radius: 12px; padding: 24px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 340px; width: 100%;">
+  <!-- Projects and LinkedIn Section: Side by side on large screens, stacked on small screens -->
+  <section class="projects-linkedin-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 40px 0;">
+    <!-- Portfolio section: My Projects -->
+    <div class="portfolio" id="portfolio" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px 16px; max-width: 340px; width: 100%; min-width: 260px;">
+      <h2 style="font-size: 1.4em; margin-bottom: 16px;">My Projects</h2>
+      <ul style="padding-left: 0; list-style: none;">
+        <li style="margin-bottom: 18px;">
+          <a href="https://raubcc.github.io/charity-water-game-prototype/" target="_blank" style="font-weight: bold; color: #0072b1; text-decoration: none;">Charity Water Game Prototype</a>
+          <div style="font-size: 0.98em; color: #333; margin-top: 6px;">
+            A simple browser game prototype designed to raise awareness about clean water access. Built with beginner-friendly HTML, CSS, and JavaScript.
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- LinkedIn Badge Section: Shows your LinkedIn profile badge in its own neat spot -->
+    <div class="linkedin-badge-section" style="background: #222; border-radius: 12px; padding: 24px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); max-width: 340px; width: 100%; min-width: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
       <h2 style="color: #fff; font-size: 1.4em; margin-bottom: 16px;">Connect with Me on LinkedIn</h2>
       <!-- LinkedIn profile badge embed code -->
       <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="ccr4" data-version="v1">
@@ -87,13 +100,7 @@
     </div>
     <!-- LinkedIn badge script (required for badge to display) -->
     <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-    <!-- Comment: This section displays your LinkedIn badge in a neat, centered card. -->
-  </section>
-
-  <!-- Portfolio section: Placeholder for your future projects -->
-  <section class="portfolio" id="portfolio" style="text-align: left;">
-    <h2>My Projects</h2>
-    <p>Check back soon to see the projects I create during my course!</p>
+    <!-- Comment: This section displays your LinkedIn badge and projects side by side on large screens, stacked on small screens. -->
   </section>
 
   <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
