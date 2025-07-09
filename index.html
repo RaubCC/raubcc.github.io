@@ -37,25 +37,31 @@
   </section>
   <style>
     /* Simple fade-in and slide-down animation for hero section */
-    .animated-header {
+    .animated-header, .main-content h2, .portfolio h2, .linkedin-badge-section h2, .f1-calendar-banner h2 {
       opacity: 0;
       transform: translateY(-40px);
       animation: fadeSlideDown 1.2s ease-out forwards;
-      /* Soft glow effect behind the header text */
-      text-shadow: 0 0 16px #ff4081, 0 0 32px #fff, 0 0 8px #d81b60;
+      /* Softer, darker pink glow with a black border for balance */
+      text-shadow: 0 0 2px #000, 0 0 4px #b0004b, 0 0 6px #fff;
     }
     .animated-subheader {
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeSlideDown 1.2s 0.7s ease-out forwards;
-      /* Soft glow effect behind the subheader text */
-      text-shadow: 0 0 8px #00e6ff, 0 0 16px #fff;
+      /* Softer, subtle glow effect behind the subheader text */
+      text-shadow: 0 0 3px #00e6ff, 0 0 5px #fff;
     }
     @keyframes fadeSlideDown {
       to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+    /* Show section headers immediately except for hero */
+    .main-content h2, .portfolio h2, .linkedin-badge-section h2, .f1-calendar-banner h2 {
+      opacity: 1;
+      transform: none;
+      animation: none;
     }
   </style>
 
