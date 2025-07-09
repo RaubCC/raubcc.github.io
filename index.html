@@ -142,44 +142,37 @@
         </table>
       </div>
     </div>
-    <!-- Standings Script: Beginner-friendly, easy to update -->
+    <!-- Standings Script: Fetches live F1 standings from Ergast API -->
     <script>
-      // Example 2025 F1 Drivers' Standings (update as needed)
-      const driversStandings = [
-        { pos: 1, driver: "Max Verstappen", team: "Red Bull Racing", points: 235 },
-        { pos: 2, driver: "Charles Leclerc", team: "Ferrari", points: 202 },
-        { pos: 3, driver: "Lewis Hamilton", team: "Mercedes", points: 185 },
-        { pos: 4, driver: "Lando Norris", team: "McLaren", points: 170 },
-        { pos: 5, driver: "Carlos Sainz", team: "Ferrari", points: 150 }
-        // Add more drivers as needed
-      ];
-      // Example 2025 F1 Constructors' Standings (update as needed)
-      const constructorsStandings = [
-        { pos: 1, team: "Red Bull Racing", points: 373 },
-        { pos: 2, team: "Ferrari", points: 352 },
-        { pos: 3, team: "Mercedes", points: 310 },
-        { pos: 4, team: "McLaren", points: 280 },
-        { pos: 5, team: "Aston Martin", points: 167 }
-        // Add more teams as needed
-      ];
-      // Render Drivers' Standings
-      const driversTable = document.getElementById('drivers-table').querySelector('tbody');
-      driversTable.innerHTML = '';
-      driversStandings.forEach(driver => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${driver.pos}</td><td>${driver.driver}</td><td>${driver.team}</td><td>${driver.points}</td>`;
-        driversTable.appendChild(row);
-      });
-      // Render Constructors' Standings
-      const constructorsTable = document.getElementById('constructors-table').querySelector('tbody');
-      constructorsTable.innerHTML = '';
-      constructorsStandings.forEach(team => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${team.pos}</td><td>${team.team}</td><td>${team.points}</td>`;
-        constructorsTable.appendChild(row);
-      });
+      // Fetch and display live F1 Drivers' and Constructors' standings using the Ergast API
+      // Drivers' Standings
+      fetch('https://ergast.com/api/f1/current/driverStandings.json')
+        .then(response => response.json())
+        .then(data => {
+          const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+          const driversTable = document.getElementById('drivers-table').querySelector('tbody');
+          driversTable.innerHTML = '';
+          standings.forEach(driver => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${driver.position}</td><td>${driver.Driver.givenName} ${driver.Driver.familyName}</td><td>${driver.Constructors[0].name}</td><td>${driver.points}</td>`;
+            driversTable.appendChild(row);
+          });
+        });
+      // Constructors' Standings
+      fetch('https://ergast.com/api/f1/current/constructorStandings.json')
+        .then(response => response.json())
+        .then(data => {
+          const standings = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+          const constructorsTable = document.getElementById('constructors-table').querySelector('tbody');
+          constructorsTable.innerHTML = '';
+          standings.forEach(team => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${team.position}</td><td>${team.Constructor.name}</td><td>${team.points}</td>`;
+            constructorsTable.appendChild(row);
+          });
+        });
     </script>
-    <!-- Comment: Update the arrays above to keep your standings current! -->
+    <!-- Comment: This script fetches live F1 standings. You don't need to update arrays manually! -->
   </section>
 
   <!-- Combined 2025 Formula 1 Calendar Section (Next 4 Weeks + Full Season) with Standings -->
